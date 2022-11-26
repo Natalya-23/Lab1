@@ -50,17 +50,17 @@ def freqPair(file_name):
 
 d1 = freqPair('input.txt')
 print(d1)
-sum = 0
+s = 0
 for key, value in d1.items():
-    sum += value[0]
-print(sum * -1)
+    s += value[0]
+print(s * -1)
 
 d2 = freqSingle('input.txt')
 print(d2)
-sum = 0
+s = 0
 for key, value in d2.items():
-    sum += value[0]
-print(sum * -1)
+    s += value[0]
+print(s * -1)
 
 def binary_search2(a):
     mid2 = sum(a) / 2
@@ -70,17 +70,17 @@ def binary_search2(a):
     if len(a) >= 2:
         for key, value in d2.items():
             for i in a:
-                if value[0] == i:
-                    sumvalue2 += value[0]
+                if value[1] == i:
+                    sumvalue2 += value[1]
                     if sumvalue2 < mid2:
                         value[1] = value[1] + '0'
-                        set1.append(value[0])
+                        set1.append(value(k[1] for k in d2.values()))
                     else:
                         value[1] = value[1] + '1'
-                        set2.append(value[0])
+                        set2.append(value(k[1] for k in d2.values()))
     else:
-        print(sorted_P)
-        return sorted_P
+        print(d2)
+        return d2
     binary_search2(set1)
     binary_search2(set2)
 
@@ -93,16 +93,16 @@ def binary_search(L):
     for key, value in L.items():
         if sumvalue <= mid:
             L[key] = [value, '0']
-            sumvalue += value
-            a.append(value)
+            sumvalue += value[1]
+            a.append(value[1])
         else:
             L[key] = [value, '1']
-            b.append(value)
+            b.append(value[1])
     return a, b
 
 kod1 = binary_search(d2)
 print(kod1)
 kod_sorted_P1 = binary_search2(kod1[0])
 print(kod_sorted_P1)
-kod_sorted_P2 = binary_search2(kod2[1])
+kod_sorted_P2 = binary_search2(kod1[1])
 print(kod_sorted_P2)
